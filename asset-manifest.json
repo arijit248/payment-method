@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/arijit248/payment-method.git/static/css/main.93d57a44.chunk.css",
+    "main.js": "/arijit248/payment-method.git/static/js/main.6251f43e.chunk.js",
+    "main.js.map": "/arijit248/payment-method.git/static/js/main.6251f43e.chunk.js.map",
+    "runtime-main.js": "/arijit248/payment-method.git/static/js/runtime-main.4b75f65c.js",
+    "runtime-main.js.map": "/arijit248/payment-method.git/static/js/runtime-main.4b75f65c.js.map",
+    "static/js/2.61cbfc03.chunk.js": "/arijit248/payment-method.git/static/js/2.61cbfc03.chunk.js",
+    "static/js/2.61cbfc03.chunk.js.map": "/arijit248/payment-method.git/static/js/2.61cbfc03.chunk.js.map",
+    "index.html": "/arijit248/payment-method.git/index.html",
+    "precache-manifest.35921375d7c2bebb6c2fb6433b3e3d4f.js": "/arijit248/payment-method.git/precache-manifest.35921375d7c2bebb6c2fb6433b3e3d4f.js",
+    "service-worker.js": "/arijit248/payment-method.git/service-worker.js",
+    "static/css/main.93d57a44.chunk.css.map": "/arijit248/payment-method.git/static/css/main.93d57a44.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4b75f65c.js",
+    "static/js/2.61cbfc03.chunk.js",
+    "static/css/main.93d57a44.chunk.css",
+    "static/js/main.6251f43e.chunk.js"
+  ]
+}
