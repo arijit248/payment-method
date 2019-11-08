@@ -21,20 +21,25 @@ class Main extends Component {
                 .then((response) => {
 
                     //cache set
-                    var LRU = require("lru-cache")
-                        , options = {
-                            max: 500
-                            , length: function (n, key) { return n * 2 + key.length }
-                            // , dispose: function (key, n) { n.close() }
-                            , maxAge: 1000 * 60 * 60
-                        }
-                        , cache = new LRU(options)
-                        , otherCache = new LRU(50) // sets just the max size
+                    // var LRU = require("lru-cache")
+                    //     , options = {
+                    //         max: 500
+                    //         , length: function (n, key) { return n * 2 + key.length }
+                    //         // , dispose: function (key, n) { n.close() }
+                    //         , maxAge: 1000 * 60 * 60
+                    //     }
+                    //     , cache = new LRU(options)
+                    // // , otherCache = new LRU(50) // sets just the max size
 
-                    cache.set("Amount", this.state.Amount)
-                    cache.get("Amount") // "value"
-                    console.log(cache)
-                    console.log(otherCache)
+                    // // cache.set("Amount", "abc")
+                    // // cache.get("Amount") // "value"
+                    // //var someObject = { Amount: this.state.Amount, numMonths: this.state.numMonths }
+                    // var key1 = { 1: 'Amount' }
+                    // var value1 = { 1: this.state.Amount }
+                    // cache.set(key1, value1)
+                    // // cache.set(someObject)
+                    // console.log(cache)
+                    // // console.log(otherCache)
 
                     this.setState({
                         Interest: response.data,
@@ -52,6 +57,8 @@ class Main extends Component {
 
     //onload data will load
     componentDidMount() {
+        // console.log(cache)
+
         this.callApi()
     }
 
