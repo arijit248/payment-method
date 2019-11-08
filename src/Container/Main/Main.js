@@ -19,6 +19,23 @@ class Main extends Component {
         if ((this.state.Amount !== this.state.prevAmount) || (this.state.numMonths !== this.state.prevnumMonths)) {
             axios.get('https://ftl-frontend-test.herokuapp.com/interest?amount=' + this.state.Amount + '&numMonths=' + this.state.numMonths)
                 .then((response) => {
+
+                    //cache set
+                    var LRU = require("lru-cache")
+                        , options = {
+                            max: 500
+                            , length: function (n, key) { return n * 2 + key.length }
+                            // , dispose: function (key, n) { n.close() }
+                            , maxAge: 1000 * 60 * 60
+                        }
+                        , cache = new LRU(options)
+                        , otherCache = new LRU(50) // sets just the max size
+
+                    cache.set("Amount", this.state.Amount)
+                    cache.get("Amount") // "value"
+                    console.log(cache)
+                    console.log(otherCache)
+
                     this.setState({
                         Interest: response.data,
                         monAmount: response.data.monthlyPayment,
