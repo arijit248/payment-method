@@ -20,27 +20,6 @@ class Main extends Component {
             axios.get('https://ftl-frontend-test.herokuapp.com/interest?amount=' + this.state.Amount + '&numMonths=' + this.state.numMonths)
                 .then((response) => {
 
-                    //cache set
-                    // var LRU = require("lru-cache")
-                    //     , options = {
-                    //         max: 500
-                    //         , length: function (n, key) { return n * 2 + key.length }
-                    //         // , dispose: function (key, n) { n.close() }
-                    //         , maxAge: 1000 * 60 * 60
-                    //     }
-                    //     , cache = new LRU(options)
-                    // // , otherCache = new LRU(50) // sets just the max size
-
-                    // // cache.set("Amount", "abc")
-                    // // cache.get("Amount") // "value"
-                    // //var someObject = { Amount: this.state.Amount, numMonths: this.state.numMonths }
-                    // var key1 = { 1: 'Amount' }
-                    // var value1 = { 1: this.state.Amount }
-                    // cache.set(key1, value1)
-                    // // cache.set(someObject)
-                    // console.log(cache)
-                    // // console.log(otherCache)
-
                     this.setState({
                         Interest: response.data,
                         monAmount: response.data.monthlyPayment,
@@ -55,6 +34,17 @@ class Main extends Component {
         }
     }
 
+    //will mount
+    componentWillMount() {
+        localStorage.getItem('Amount') && this.setState({
+            Amount: JSON.parse(localStorage.getItem('Amount')),
+        })
+
+        localStorage.getItem('numMonths') && this.setState({
+            numMonths: JSON.parse(localStorage.getItem('numMonths')),
+        })
+    }
+
     //onload data will load
     componentDidMount() {
         // console.log(cache)
@@ -65,6 +55,12 @@ class Main extends Component {
     //updated data will show
     componentDidUpdate() {
         this.callApi()
+    }
+
+    //will update
+    componentWillUpdate(nextProps, nextState) {
+        localStorage.setItem('Amount', JSON.stringify(nextState.Amount));
+        localStorage.setItem('numMonths', JSON.stringify(nextState.numMonths));
     }
 
     //Loan Amount Event
