@@ -48,8 +48,8 @@ class Main extends Component {
     //onload data will load
     componentDidMount() {
         // console.log(cache)
-
         this.callApi()
+
     }
 
     //updated data will show
