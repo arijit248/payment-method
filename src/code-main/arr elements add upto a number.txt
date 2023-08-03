@@ -1,0 +1,44 @@
+function findSumBetter(arr, weight) {
+  var hashtable = {};
+  for (var i=0, arrLength=arr.length; i<arrLength; i++) {
+  var currentElement = arr[i],
+  difference = weight - currentElement;
+ 
+  // check the right one already exists
+  if (hashtable[currentElement] != undefined) {
+      console.log(hashtable,currentElement,difference)
+      //return [i, hashtable[weight-currentElement]];
+      return [currentElement,difference];
+  } 
+   else {
+     hashtable[difference] = i;
+     console.log(hashtable[difference],difference)
+  }
+ }
+ return -1;
+ }
+
+
+to return all possible combinations
+
+function findSumBetter(arr, weight) {
+  var hashtable = {};
+  var array = [];
+  for (var i=0, arrLength=arr.length; i<arrLength; i++) {
+  var currentElement = arr[i],
+  difference = weight - currentElement;
+  // check the right one already exists
+  if (hashtable[currentElement] != undefined) {
+      array.push([currentElement,difference])
+ } else {
+ // store index
+ hashtable[difference] = i;
+ console.log(hashtable[difference],difference)
+ }
+ }
+    console.log(array)
+    if(array.length>0){
+        return array
+    }
+ return -1;
+ }

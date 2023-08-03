@@ -1,0 +1,15 @@
+var productExceptSelf = function(nums) {
+    const arr = []
+
+    for(let i=0;i<nums.length;i++){
+        let val = nums[i]
+        let sum = 1;
+        nums.forEach((ele,index) => {
+            if(index != i){
+                sum = sum * ele
+            }
+        })
+         arr.push(sum)
+    }
+    return arr
+};

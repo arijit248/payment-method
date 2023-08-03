@@ -1,0 +1,52 @@
+function swap(arr,index1,index2){
+let temp = arr[index1]
+arr[index1] = arr[index2]
+arr[index2] = temp
+}
+
+function possibilities(str){
+	let result = [];
+        let arr = str.split('')
+	function helperPossibilities(arr,start,end){
+	 if(start>= end){
+	     result.push(arr.join(''))
+	 }
+    else{
+     for(let i=start;i<end+1;i++){
+	swap(arr,start,i);
+	helperPossibilities(arr,start+1,end);
+	swap(arr,start,i)
+     }
+   }
+ }
+	
+helperPossibilities(arr ,0,arr.length-1)
+return result;
+}
+['abc','acb','bac','bca','cab','cba']
+
+possibilities('abc')
+
+Array.prototype.customJoin = function(){
+ return
+}
+
+sum(3)(2)  ==> 5
+sum(3,2)  ==> 5
+
+
+function add(args){
+ const len = args.length;
+ if(arg.length>1){
+  return a+b
+ }
+  return function(b){
+   return a+b
+ }
+}
+
+
+span[abc='nitin']
+  
+
+

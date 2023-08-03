@@ -1,0 +1,27 @@
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+var isPalindrome = function(x) {
+   // return palindromeHelper(x.toString(),0,x.toString().length-1)
+    var n = x;
+    var n1 = 0;
+    while(n>0){
+     n1 = (n1*10) + (n%10);
+     n = Math.floor(n/10);
+   }
+    if(n1===x) return true;
+     return false;
+  };
+
+// function palindromeHelper(string,start,end){
+//     if(start >= end){
+//         return true
+//     }
+//     if(string.charAt(start) !== string.charAt(end)){
+//         return false
+//     }else{
+//         return palindromeHelper(string,start+1,end-1)
+//     }
+// }
+

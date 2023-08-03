@@ -1,0 +1,76 @@
+Iterative solution
+
+const myStr=(str)=>{
+  let i = 0;
+  let j = str.length -1;
+  let newStr = str.toLowerCase();
+  while(i<j){
+    if(newStr[i]==newStr[j]){
+      i++;j--;
+    }
+    else{
+      console.log(false)
+      return false
+    }
+  }
+  console.log(true)
+  return true
+}
+myStr("malayalaM")
+myStr("Ariirt")
+
+
+Broken into functions
+const myFunc=(str,i,j)=>{
+  while(i<j){
+    if(str[i]==str[j]){
+      i++;j--;
+    }
+    else{
+      return false
+    }
+  }
+  return true
+}
+
+const myStr=(str)=>{
+
+  const x = myFunc(str.toLowerCase(),0,str.length-1)
+  if(x){
+    console.log('true')
+  }else{
+    console.log('false')
+  }
+
+}
+myStr("malayalaM")
+myStr("Arijira")
+
+function palindrome(str){
+  const newStr = str.split('').reverse().join('');
+   if(newStr == str){
+       return true
+   } 
+   return false 
+}
+palindrome('nitin');
+
+
+Recursive Solution
+
+function isPalindromeRecursive(word) {
+   return isPalindromeHelper(word, 0, word.length-1);
+ }
+ 
+function isPalindromeHelper(word, beginPos, endPos) {
+  if (beginPos >= endPos) {
+    return true;
+  }
+  if (word.charAt(beginPos) != word.charAt(endPos)) {
+     return false;
+   } else {
+      return isPalindromeHelper(word, beginPos + 1, endPos - 1);
+   }
+}
+
+isPalindromeRecursive('nitin')

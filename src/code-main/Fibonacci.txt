@@ -1,0 +1,52 @@
+1 1 2 3 5 8 13 21 34 55 89 144
+
+function fibonacci(n){
+let arr = []
+let temp = 1
+for(let i=0;i<n;i++){
+if(i<=1){
+ arr.push(1)
+}
+else{
+arr.push(arr[i-2] + temp)
+temp = arr[i-2]+temp
+}
+}
+console.log(arr[n-1])//for nth number in fibonacci
+console.log(arr)
+}
+
+
+function getNthFiboBetter(n, lastlast, last) {
+ if (n == 0) {
+ return lastlast;
+ }
+ if (n == 1) {
+ return last;
+ }
+ return getNthFiboBetter(n-1, last, lastlast + last);
+}
+
+-----------------------------------------
+
+function fibonacci(n,lastlast,last){
+  if(n==0){
+    return lastlast
+  }
+  
+  if(n==1){
+    return last;
+  }
+  return fibonacci(n-1,last,lastlast+last)
+  
+}
+
+function calcFibonacci(n){
+  let arr = []
+  for(let i = 1;i<=n;i++){
+    arr.push(fibonacci(i,0,1))
+  }
+  console.log(arr)
+}
+
+calcFibonacci(10)

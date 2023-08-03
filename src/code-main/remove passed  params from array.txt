@@ -1,0 +1,16 @@
+// function destroyer(arr,...args){
+//   let arg = [...args]
+//   let obj = {}
+//   for(let val of args){
+//     obj[val] = 1
+//   }
+  
+//  let x = arr.filter(ele => {
+//    if(!obj[ele]){
+//      return ele
+//    }
+//  })
+// console.log(x)
+// }
+
+// destroyer([1,2,3,4,2,3,5],2,3)

@@ -1,0 +1,17 @@
+function myFunction(a, b) {
+  return a.reduce((sum, cur) => {
+    if (cur > b) return sum + cur;
+    return sum;
+  }, 0);
+}
+
+function myFunction(a, b){
+return a.filter(ele => ele > b).reduce((acc, cur) => acc + cur, 0);
+}
+
+flatten an array start
+function myFunction(...arrays){
+return arrays.flat()
+}
+myFunction([1, 2, 3], [4, 5, 6])  Expected[1, 2, 3, 4, 5, 6]
+flatten an array end

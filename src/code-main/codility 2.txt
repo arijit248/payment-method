@@ -1,0 +1,13 @@
+// you can write to stdout for debugging purposes, e.g.
+// console.log('this is a debug message');
+
+function solution(S) {
+    // write your code in JavaScript (Node.js 14)
+
+    let arr = S.replace(/minus/g, '-');
+
+
+    let fin = arr.replace(/plus/g,'+');
+    return fin;
+}
+

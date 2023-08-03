@@ -1,0 +1,19 @@
+
+
+// function Diagonals(arr){
+//   let diag1 = 0;
+//   let diag2 = 0;
+//   let n = arr.length
+//   for(let i=0;i<n;i++){
+//     diag1 += arr[i][i]
+//     diag2 += arr[i][n-i-1]
+//   }
+//   console.log(Math.abs(diag1-diag2))
+//   return diag1-diag2
+// } 
+//   Diagonals([
+//     [.1,2,3],
+//     [4,.5,6],
+//     [.5,8,.9]
+    
+//   ])

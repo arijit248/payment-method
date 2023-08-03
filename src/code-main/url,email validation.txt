@@ -1,0 +1,142 @@
+import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
+import Message from './Message';
+
+class Form extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isEmailValid: false,
+      isNameValid: false,
+      isPhoneValid: false,
+      isUrlValid: false,
+      name: '',
+      emailId: '',
+      phone: '',
+      blogUrl: '',
+      isFormValid: false,
+    };
+  }
+  ValidateEmail = (mail) => {
+    if (/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/.test(mail)) {
+      return true;
+    }
+    return false;
+  };
+  validatePh = (ph) => {
+    if (/^[2-9][0-9]{9}$/.test(ph)) {
+      return true;
+    }
+    return false;
+  };
+  validateUrl = (url) => {
+    if (
+      /((?:(?:http?|ftp)[s]*:\/\/)?[a-z0-9-%\/\&=?\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?)/gi.test(
+        url
+      )
+    ) {
+      return true;
+    }
+    return false;
+  };
+
+  verifyInputs = () => {
+    if (
+      !this.state.isNameValid ||
+      !this.state.isEmailValid ||
+      !this.state.isPhoneValid ||
+      !this.state.isUrlValid
+    ) {
+      this.setState({ ...this.state, isFormValid: false });
+    } else {
+      this.setState({ ...this.state, isFormValid: true });
+    }
+  };
+
+  render() {
+    return (
+      <div className='row'>
+        <h1 className='text-center'>Form Validation</h1>
+        <form>
+          <h3>
+            Name:
+            <input
+              name='name'
+              type='text'
+              onChange={(event) => {
+                this.setState({ ...this.state, name: event.target.value });
+                if (
+                  event.target.value.length <= 30 &&
+                  event.target.value.length >= 3
+                ) {
+                  this.setState({ ...this.state, isNameValid: true });
+                } else {
+                  this.setState({ ...this.state, isNameValid: false });
+                }
+              }}
+            />
+          </h3>
+          <h3>
+            Email:
+            <input
+              name='emailId'
+              type='email'
+              onChange={(event) => {
+                this.setState({ ...this.state, emailId: event.target.value });
+                if (this.ValidateEmail(event.target.value)) {
+                  this.setState({ ...this.state, isEmailValid: true });
+                } else {
+                  this.setState({ ...this.state, isEmailValid: false });
+                }
+              }}
+            />
+          </h3>
+          <h3>
+            Phone:
+            <input
+              name='phone'
+              type='number'
+              onChange={(event) => {
+                this.setState({ ...this.state, phone: event.target.value });
+                if (this.validatePh(event.target.value)) {
+                  this.setState({ ...this.state, isPhoneValid: true });
+                } else {
+                  this.setState({ ...this.state, isPhoneValid: false });
+                }
+              }}
+            />
+          </h3>
+          <h3>
+            Blog URL:
+            <input
+              name='blogUrl'
+              type='text'
+              onChange={(event) => {
+                this.setState({ ...this.state, blogUrl: event.target.value });
+                if (this.validateUrl(event.target.value)) {
+                  this.setState({ ...this.state, isUrlValid: true });
+                } else {
+                  this.setState({ ...this.state, isUrlValid: false });
+                }
+              }}
+            />
+          </h3>
+          <div className='small-6 small-centered text-center columns'>
+            <a
+              href='#'
+              onClick={() => {
+                this.verifyInputs();
+              }}
+              className='button success expand round text-center'
+            >
+              Verify
+            </a>
+          </div>
+        </form>
+        {!this.state.isFormValid && <Message />}
+      </div>
+    );
+  }
+}
+
+export default Form;

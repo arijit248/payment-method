@@ -1,0 +1,19 @@
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+  
+    var map = {};
+    for(var i = 0 ; i < nums.length ; i++){
+        var n = nums[i];
+        var diff = target - n;
+        if(map[diff] >= 0){
+            return [map[diff],i]
+        } 
+        else {
+            map[n] = i;   //use map to store the value and index position
+        }
+    }
+};

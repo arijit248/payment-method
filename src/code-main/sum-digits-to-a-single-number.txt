@@ -1,0 +1,14 @@
+function singleSumValue(num){
+  const splitNum = num.toString().split('').map(Number);
+  
+  return splitNum.reduce((acc,cur)=>{
+    let sum = acc+cur;    
+    if(sum>10){
+     return singleSumValue(sum);
+    }else{
+      return sum;
+    }
+  })
+}
+
+console.log(singleSumValue(444));

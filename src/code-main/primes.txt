@@ -1,0 +1,36 @@
+ function isPrime(n){
+  if (n <= 1) return false;
+  if (n <= 3) return true;
+  if (n%2 == 0 || n%3 == 0) return false;
+
+ for (var i=5; i*i<=n; i=i+6){
+console.log(i)
+ if (n%i == 0 || n%(i+2) == 0)
+ return false;
+ }
+
+ return true;
+}
+
+
+function isPrime(n){
+if(n<=1) return false
+if( n<=3) return true;
+if(n%2== 0 || n%3== 0 || n%5== 0 || n%7 == 0){
+return false;
+}
+return true;
+}
+
+function getNprimes(n){
+if(n==0) return [];
+if(n==1)return [2];
+if(n==2) return [2,3]
+const arr =[2,3];
+for(let i=2;arr.length<n;i++){
+if(isPrime(i)){
+arr.push(i)
+}
+}
+return arr
+}

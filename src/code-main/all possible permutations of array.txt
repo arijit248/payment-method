@@ -1,0 +1,50 @@
+function swap(strArr,index1,index2){
+ var temp = strArr[index1];
+ strArr[index1] = strArr[index2];
+ strArr[index2] = temp;
+console.log(strArr)
+}
+
+var inArr = []
+function calculatepermutation(strArr,start,end){
+ if(start == end){
+  console.log(strArr)
+  inArr.push(strArr)   
+ }
+ else{
+   for(var i = start;i<end+1;i++){
+     swap(strArr,start,i);
+     calculatepermutation(strArr,start+1,end);
+     swap(strArr,start,i)
+   }
+ }
+}
+
+function permutations(arr){ 
+  if(inArr.length>0){
+      inArr = []
+  }  
+ calculatepermutation(arr,0,arr.length-1)
+ return inArr.length; 
+}
+
+function possibilities(str){
+	let result = [];
+        let arr = str.split('')
+	function helperPossibilities(arr,start,end){
+	 if(start>= end){
+	     result.push(arr.join(''))
+	 }
+    else{
+     for(let i=start;i<end+1;i++){
+	swap(arr,start,i);
+	helperPossibilities(arr,start+1,end);
+	swap(arr,start,i)
+     }
+   }
+ }
+	
+helperPossibilities(arr ,0,arr.length-1)
+return result;
+}
+['abc','acb','bac','bca','cab','cba']

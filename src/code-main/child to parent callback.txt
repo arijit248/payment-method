@@ -1,0 +1,33 @@
+Child Component to Parent Component (using callbacks)
+This one is a bit tricky. We follow the steps below:
+Create a callback in the parent component which takes in the data needed as a parameter.
+Pass this callback as a prop to the child component.
+Send data from the child component using the callback.
+We are considering the same example above but in this case, we are going to pass the updated counterValue from child to parent.
+Step1 and Step2: Create a callback in the parent component, pass this callback as a prop.
+function ParentComponent(props) {
+let [counter, setCounter] = useState(0);
+let callback = valueFromChild => setCounter(valueFromChild);
+return (
+  <div>
+    <p>Value of counter: {counter}</p>
+    <ChildComponent callbackFunc={callback} counterValue={counter} />
+  </div>
+);
+}
+As one can see in the code above, we created a function called callback which takes in the data received from the child component as a parameter.
+Next, we passed the function callback as a prop to the child component.
+Step3: Pass data from the child to the parent component.
+function ChildComponent(props) {
+let childCounterValue = props.counterValue;
+return (
+  <div>
+    <button onClick={() => props.callbackFunc(++childCounterValue)}>
+      Increment Counter
+    </button>
+  </div>
+);
+}
+In the code above, we have used the props.counterValue and set it to a variable called childCounterValue.
+Next, on button click, we pass the incremented childCounterValue to the props.callbackFunc.
+This way, we can pass data from the child to the parent component.

@@ -1,0 +1,24 @@
+
+function solution(A) {
+    // write your code in JavaScript (Node.js 14) 
+    if(A.length===0){
+        return 1;
+    }
+    let uniqS= new Set(A);
+    let uniqA = Array.from(uniqS);
+   let sum=0;
+   let n = uniqA.length+1;
+   let sumAll = n*(n+1)/2;
+    for (i=0;i<uniqA.length;i++){
+        console.log(i)
+  sum = sum + uniqA[i]
+    }
+    console.log('test',)
+    if (sum >0 ){ return sumAll-sum;}
+        
+    
+    else {return 1}
+       
+}
+let val =solution( [1, 2, 6, 4, 1, 2])
+ 
