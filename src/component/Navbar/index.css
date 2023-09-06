@@ -1,0 +1,37 @@
+/* .navbarMainDiv {
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  .menuDiv {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .navMenu {
+      margin-left: 1%;
+    }
+  }
+} */
+
+.Navbar {
+  .Appbar {
+    /* background-color: rgb(103 58 183 / 100%); */
+    background-color: rgb(97 58 183 / 100%);
+    padding-top: 2px;
+    padding-bottom: 8px;
+    .DrawerIcon {
+      display: none;
+    }
+    .subMenuDiv {
+      display: inline-flex;
+      justify-content: right;
+      align-items: center;
+      width: 100%;
+      .subMenu {
+        font-size: 17px;
+        color: #fff;
+        margin-left: 35px;
+      }
+    }
+  }
+}
