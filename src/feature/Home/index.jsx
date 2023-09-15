@@ -1,65 +1,24 @@
-import Navbar from "../../component/Navbar";
-import Typography from "@material-ui/core/Typography";
-import { Link } from "react-router-dom";
-import AccountCircleRoundedIcon from "@material-ui/icons/AccountCircleRounded";
-import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
+import ClickTiles from "../../component/ClickTiles";
+import "../common.css";
+
 const Home = () => {
   return (
-    <div
-      style={
-        {
-          // display: "flex",
-          // justifyContent: "center",
-          // alignItems: "center",
-          // background:
-          //   "linear-gradient(133deg,rgb(103 58 183 / 100%) 4%,rgb(247 247 247 / 90%) 51%)top center / cover no-repeat",
-        }
-      }
-    >
-      <Navbar />
-      {/* <h1>Home</h1> */}
-      <div
-        style={{
-          position: "absolute",
-          top: "3.5%",
-          right: "3%",
-          zIndex: "9999",
-        }}
-      >
-        <Typography
-          variant="h4"
-          noWrap
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <AccountCircleRoundedIcon style={{ color: "#fff" }} />
-          <Link to="/" style={{ fontSize: "17px", color: "#fff" }}>
-            Login
-          </Link>
-        </Typography>
-      </div>
-      <div
-      // style={{
-      //   position:"absolute",
-
-      // }}
-      >
-        <Paper
-          style={{
-            width: "450px",
-            height: "100%",
-            padding: "5%",
-            background: "#613ab7",
-            color: "#fff",
-            cursor: "pointer",
-          }}
-        >
-          Please Click Here To Login In Zerodha
-        </Paper>
-      </div>
+    <div className="commonStyles">
+      <Grid container spacing={4}>
+        <Grid item xs={12} lg={3} xl={3} md={6}>
+          <ClickTiles title="Zerodha" />
+        </Grid>
+        <Grid item xs={12} lg={3} xl={3} md={6}>
+          <ClickTiles title="5 Paisa" />
+        </Grid>
+        <Grid item xs={12} lg={3} xl={3} md={6}>
+          <ClickTiles title="ICICI" />
+        </Grid>
+        <Grid item xs={12} lg={3} xl={3} md={6}>
+          <ClickTiles title="First Stock" />
+        </Grid>
+      </Grid>
     </div>
   );
 };

@@ -13,10 +13,14 @@
   }
 } */
 
+.nodisplay {
+  display: none;
+}
 .Navbar {
   .Appbar {
     /* background-color: rgb(103 58 183 / 100%); */
-    background-color: rgb(97 58 183 / 100%);
+    /* background-color: rgb(97 58 183 / 100%); */
+    background-color: #4d128c;
     padding-top: 2px;
     padding-bottom: 8px;
     .DrawerIcon {
@@ -31,6 +35,7 @@
         font-size: 17px;
         color: #fff;
         margin-left: 35px;
+        text-decoration: none;
       }
     }
   }

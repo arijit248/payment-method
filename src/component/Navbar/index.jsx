@@ -19,6 +19,7 @@ import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import "./index.css";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -83,17 +84,21 @@ export default function PersistentDrawerLeft() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-
+  const location = useLocation();
   const handleDrawerOpen = () => {
     setOpen(true);
   };
-
+  console.log(location, "loc");
   const handleDrawerClose = () => {
     setOpen(false);
   };
 
   return (
-    <div className={classes.root + " " + "Navbar"}>
+    <div
+      className={
+        location?.pathname === "/" ? "nodisplay" : classes.root + " " + "Navbar"
+      }
+    >
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -137,7 +142,8 @@ export default function PersistentDrawerLeft() {
                 display: "inline-flex",
                 justifyContent: "center",
                 alignItems: "center",
-                width: "50%",
+                textDecoration: "none",
+                // width: "50%",
               }}
             >
               <Typography variant="h4" noWrap>

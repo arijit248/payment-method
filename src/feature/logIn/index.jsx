@@ -8,7 +8,8 @@ import Grid from "@material-ui/core/Grid";
 import Button from "../../component/ButtonField";
 import Heading from "../../component/HeadingField";
 import "./index.css";
-import LoginImg from "../../assets/login1.svg";
+// import LoginImg from "../../assets/login1.svg";
+import LoginImg from "../../assets/login3.svg";
 const Login = () => {
   const dispatch = useDispatch();
   const prices = useSelector((state) => state.loginSlice.prices.data);
@@ -18,6 +19,7 @@ const Login = () => {
       dispatch(getData());
     }
   }, []);
+
   return (
     <div>
       <div className="background">

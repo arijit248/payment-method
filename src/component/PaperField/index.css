@@ -1,0 +1,9 @@
+.PaperPage {
+  /* position: relative;
+  top: 10px;
+  bottom: 0; */
+  width: 307px;
+  height: 265px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(21, 27, 38, 0.331) !important;
+}
